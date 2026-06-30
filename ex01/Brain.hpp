@@ -6,7 +6,7 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 07:48:42 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 08:11:30 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:15:25 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 class	Brain
 {
+private:
+	static std::string	randomIdeas[12];
+
 protected:
 	std::string	ideas[100];
 
@@ -26,4 +29,5 @@ public:
 	Brain	&operator=	( const Brain & );
 
 	void	fillIdeas( const std::string );
+	void	fillRandomIdeas( int );
 };

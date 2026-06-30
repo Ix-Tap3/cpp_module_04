@@ -6,12 +6,28 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 07:52:15 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 13:31:28 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:15:10 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <ctime>
 #include "Brain.hpp"
+
+std::string	Brain::randomIdeas[12] = {
+	"Think about eat snacks",
+	"Think about eating some socks",
+	"Dominate the World",
+	"Drink water",
+	"Destroy the main entrance carpet",
+	"Use his acting talent to have some candys",
+	"Make sound to have some candys",
+	"Run and jump everywhere in the house",
+	"Go pee in the garden",
+	"Have some random ideas",
+	"Dream about meat and bones",
+	"Take a nap"
+};
 
 Brain::Brain	( void ) : ideas() { std::cout << "Brain constructor called" << std::endl; }
 Brain::~Brain	( void ) { std::cout << "Brain Destructor called" << std::endl; }
@@ -31,6 +47,20 @@ Brain	&Brain::operator=	( const Brain &other )
 	return (*this);
 }
 
+void	Brain::fillRandomIdeas( int count )
+{
+	int				idx;
+	int				i;
+
+	std::srand(std::time({}));
+	while (count < 100)
+	{
+		idx = rand() % 13;
+		this->ideas[count] = this->randomIdeas[idx];
+		count++;
+	}
+}
+
 void	Brain::fillIdeas( const std::string animal )
 {
 	std::string	line;
@@ -48,5 +78,5 @@ void	Brain::fillIdeas( const std::string animal )
 		count++;
 	}
 	if (count < 100)
-
+		this->fillRandomIdeas(count);
 }
