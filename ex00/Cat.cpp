@@ -6,14 +6,14 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 09:50:58 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 10:13:17 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/06/29 18:35:44 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Cat.hpp"
 
-Cat::Cat	( void ): Animal() { type = "Cat"; std::cout << "Cat Constructor Called" << std::endl; };
+Cat::Cat	( void ): Animal() { type = "Cat"; std::cout << "Cat Constructor Called" << std::endl; }
 Cat::~Cat	( void ) { std::cout << "Cat Destructor Called" << std::endl; };
 Cat::Cat	( const Cat &other): Animal( other )
 {
@@ -30,4 +30,4 @@ Cat	&Cat::operator=	( const Cat &other )
 	return (*this);
 }
 
-void	Cat::makeSound( void ) { std::cout << "Miou Miou Ne... hum miaou fais le chat" << std::endl; };
+void	Cat::makeSound( void ) { std::cout << "Miou Miou... hum miaou miaou" << std::endl; }

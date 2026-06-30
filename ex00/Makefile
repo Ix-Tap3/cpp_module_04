@@ -1,7 +1,7 @@
 NAME = animalSounds
 CC = c++
 FLAGS = -Wall -Werror -Wextra -std=c++98
-SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp
+SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS = ${SRCS:%.cpp=%.o}
 
 .PHONY: all clean fclean re
