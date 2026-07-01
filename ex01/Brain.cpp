@@ -6,7 +6,7 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 07:52:15 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 16:15:10 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/06/30 16:40:35 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	Brain::fillRandomIdeas( int count )
 	std::srand(std::time({}));
 	while (count < 100)
 	{
-		idx = rand() % 13;
+		idx = rand() % 12;
 		this->ideas[count] = this->randomIdeas[idx];
 		count++;
 	}
