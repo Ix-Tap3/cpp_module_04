@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*   AWrongAnimal.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:10:03 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 18:20:18 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/03 16:11:00 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "WrongAnimal.hpp"
+#include "AWrongAnimal.hpp"
 
-WrongAnimal::~WrongAnimal	( void ) { std::cout << "WrongAnimal destructor called" << std::endl; }
-WrongAnimal::WrongAnimal	( void )
+AWrongAnimal::~AWrongAnimal	( void ) { std::cout << "WrongAnimal destructor called" << std::endl; }
+AWrongAnimal::AWrongAnimal	( void )
 { 
 	type = "WrongAnimal";
 	std::cout << "WrongAnimal construtor called" << std::endl;
 }
-WrongAnimal::WrongAnimal	( const WrongAnimal &other )
+AWrongAnimal::AWrongAnimal	( const AWrongAnimal &other )
 {
 	std::cout << "WrongAnimal copy construtor called" << std::endl;
 	if (this != &other)
 		*this = other;
 }
 
-WrongAnimal	&WrongAnimal::operator= ( const WrongAnimal &other )
+AWrongAnimal	&AWrongAnimal::operator= ( const AWrongAnimal &other )
 {
 	std::cout << "WrongAnimal assignement operator called" << std::endl;
 	if (this != &other)
@@ -34,9 +34,4 @@ WrongAnimal	&WrongAnimal::operator= ( const WrongAnimal &other )
 	return (*this);
 }
 
-std::string	WrongAnimal::getType( void ) { return type; }
-
-void	WrongAnimal::makeSound( void ) 
-{
-	std::cout << "WrongAnimal do some random wrong noises" << std::endl;
-}
+std::string	AWrongAnimal::getType( void ) { return type; }

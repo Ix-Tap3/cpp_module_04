@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AWrongAnimal.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
+/*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/24 16:29:56 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 10:23:23 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/06/29 10:25:25 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/07/03 16:12:43 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
 
-class	Animal
+class	AWrongAnimal
 {
 protected:
 	std::string	type;
 
 public:
-	Animal			(void);
-	Animal			(const Animal &);
-	virtual	~Animal	(void);
+	AWrongAnimal			( void );
+	virtual ~AWrongAnimal	( void );
+	AWrongAnimal			( const AWrongAnimal & );
 
-	Animal	&operator= (const Animal &);
+	AWrongAnimal	&operator=	( const AWrongAnimal & );
 
-	std::string		getType(void);
-	virtual void	makeSound(void);
+	std::string		getType( void );
+	virtual void	makeSound( void ) = 0;
 };

@@ -6,21 +6,21 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 09:50:58 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 16:40:24 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/03 16:06:40 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Cat.hpp"
 
-Cat::Cat	( void ): Animal()
+Cat::Cat	( void ): AAnimal()
 {
 	std::cout << "Cat Constructor Called" << std::endl;
 	type = "Cat";
 	_brain = new Brain();
 	_brain->fillIdeas("Cat");
 }
-Cat::Cat	( const Cat &other): Animal( other )
+Cat::Cat	( const Cat &other): AAnimal( other )
 {
 	std::cout << "Cat copy Constructor Called" << std::endl;
 	if (this != &other)

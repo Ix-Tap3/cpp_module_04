@@ -6,15 +6,15 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:25:20 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 16:41:29 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/03 16:06:55 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class	Dog: public Animal
+class	Dog: public AAnimal
 {
 private:
 	Brain	*_brain;

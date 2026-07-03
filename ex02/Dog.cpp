@@ -6,21 +6,21 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:46:41 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 18:36:09 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/03 16:07:09 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Dog.hpp"
 
-Dog::Dog	( void ): Animal()
+Dog::Dog	( void ): AAnimal()
 {
 	std::cout << "Dog constructor called !" << std::endl;
 	type = "Dog";
 	_brain = new Brain();
 	_brain->fillIdeas("Dog");
 }
-Dog::Dog	( const Dog &other ): Animal( other )
+Dog::Dog	( const Dog &other ): AAnimal( other )
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	if (this != &other)

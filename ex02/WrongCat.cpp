@@ -6,20 +6,20 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 18:08:58 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 18:40:35 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/03 16:10:47 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat	( void ) : WrongAnimal()
+WrongCat::WrongCat	( void ) : AWrongAnimal()
 {
 	std::cout << "WrongCat constructor called" << std::endl;
 	type = "WrongCat";
 	_brain = new Brain();
 }
-WrongCat::WrongCat	( const WrongCat &other ) : WrongAnimal( other )
+WrongCat::WrongCat	( const WrongCat &other ) : AWrongAnimal( other )
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
 	if (this != &other)

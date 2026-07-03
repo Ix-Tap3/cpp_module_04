@@ -6,7 +6,7 @@
 /*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 16:42:24 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 16:44:13 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/03 16:07:26 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	main( void )
 {
-	Animal	*animals[10];
+	AAnimal	*animals[10];
 	Cat		batcat = Cat();
 	Dog		batdog = Dog();
 
