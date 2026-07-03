@@ -18,6 +18,7 @@ Cat::Cat	( void ): Animal()
 	std::cout << "Cat Constructor Called" << std::endl;
 	type = "Cat";
 	_brain = new Brain();
+	_brain->fillIdeas("Cat");
 }
 Cat::Cat	( const Cat &other): Animal( other )
 {
@@ -25,7 +26,11 @@ Cat::Cat	( const Cat &other): Animal( other )
 	if (this != &other)
 		*this = other;
 }
-Cat::~Cat	( void ) { std::cout << "Cat Destructor Called" << std::endl; };
+Cat::~Cat	( void )
+{
+	std::cout << "Cat Destructor Called" << std::endl;
+	delete _brain;
+}
 
 Cat	&Cat::operator=	( const Cat &other )
 {
@@ -38,4 +43,6 @@ Cat	&Cat::operator=	( const Cat &other )
 	return (*this);
 }
 
-void	Cat::makeSound( void ) { std::cout << "Miou Miou... hum miaou miaou" << std::endl; }
+void		Cat::makeSound( void ) { std::cout << "Miou Miou... hum miaou miaou" << std::endl; }
+void		Cat::thinkALot( void ) { _brain->displayIdeas(); }
+std::string	Cat::think( void ) { return (_brain->getRandomIdea()); }

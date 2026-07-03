@@ -12,23 +12,26 @@
 
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
 #include "Brain.hpp"
 
+// --- Static members initialisation
 std::string	Brain::randomIdeas[12] = {
-	"Think about eat snacks",
-	"Think about eating some socks",
-	"Dominate the World",
-	"Drink water",
-	"Destroy the main entrance carpet",
-	"Use his acting talent to have some candys",
-	"Make sound to have some candys",
-	"Run and jump everywhere in the house",
-	"Go pee in the garden",
-	"Have some random ideas",
-	"Dream about meat and bones",
-	"Take a nap"
+	"Eating some snacks",
+	"Eating your socks",
+	"Dominating the World",
+	"Drinking water",
+	"Destroying the main entrance carpet",
+	"Using his acting talent to have some candys",
+	"Making sound to have some candys",
+	"Runing and jumping everywhere in the house",
+	"Going to pee on the crouch",
+	"Having some random ideas",
+	"Dreaming about meat and bones",
+	"Taking a nap"
 };
 
+// --- constructors and destructors
 Brain::Brain	( void ) : ideas() { std::cout << "Brain constructor called" << std::endl; }
 Brain::~Brain	( void ) { std::cout << "Brain Destructor called" << std::endl; }
 Brain::Brain	( const Brain &other )
@@ -36,6 +39,14 @@ Brain::Brain	( const Brain &other )
 	std::cout << "Brain copy constructor called" << std::endl;
 	if (this != &other )
 		*this = other;
+}
+
+std::string	Brain::getRandomIdea( void ) const
+{
+	int	idx;
+
+	idx = std::rand() % 100;
+	return (ideas[idx]);
 }
 
 Brain	&Brain::operator=	( const Brain &other )
@@ -50,12 +61,11 @@ Brain	&Brain::operator=	( const Brain &other )
 void	Brain::fillRandomIdeas( int count )
 {
 	int				idx;
-	int				i;
 
-	std::srand(std::time({}));
+	std::srand(std::time(NULL));
 	while (count < 100)
 	{
-		idx = rand() % 12;
+		idx = std::rand() % 12;
 		this->ideas[count] = this->randomIdeas[idx];
 		count++;
 	}
@@ -68,6 +78,7 @@ void	Brain::fillIdeas( const std::string animal )
 
 	std::cout << "Please fill " << animal << "'s Brain with some evil ideas";
 	std::cout << std::endl;
+	count = 0;
 	while (count < 100)
 	{
 		std::cout << "Enter an Idea, press q to stop and fill with random ideas" << std::endl;
@@ -79,4 +90,10 @@ void	Brain::fillIdeas( const std::string animal )
 	}
 	if (count < 100)
 		this->fillRandomIdeas(count);
+}
+
+void	Brain::displayIdeas( void )
+{
+	for (int i = 0; i < 100; i++)
+	  std::cout << ideas[i] << std::endl;
 }

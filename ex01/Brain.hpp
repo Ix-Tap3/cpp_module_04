@@ -28,6 +28,9 @@ public:
 
 	Brain	&operator=	( const Brain & );
 
+	std::string	getRandomIdea( void ) const;
+
 	void	fillIdeas( const std::string );
 	void	fillRandomIdeas( int );
+	void	displayIdeas( void );
 };

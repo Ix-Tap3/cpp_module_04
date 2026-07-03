@@ -25,5 +25,8 @@ public:
 	~Cat	( void );
 
 	Cat	&operator=	( const Cat &);
-	void	makeSound( void );
+
+	void		makeSound( void );
+	void		thinkALot( void );
+	std::string	think( void );
 };

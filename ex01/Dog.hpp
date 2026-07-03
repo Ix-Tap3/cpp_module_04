@@ -25,5 +25,8 @@ public:
 	~Dog	( void );
 
 	Dog	&operator= ( const Dog & );
-	void	makeSound( void );
+
+	void		makeSound( void );
+	void		thinkALot( void );
+	std::string	think( void );
 };
