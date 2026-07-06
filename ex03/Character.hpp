@@ -18,7 +18,7 @@ private:
 	static const int	inventorySize = 4;
 	std::string	_name;
 	AMateria	*_inventory[inventorySize];
-	AMateria	*_saveMateria[inventorySize];
+	AMateria	**_saveMateria;
 
 public:
 	Character	( void );

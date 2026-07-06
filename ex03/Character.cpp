@@ -10,8 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character.hpp"
 #include <iostream>
+#include "Character.hpp"
+#include "AMateria.hpp"
 
 Character::~Character	( void )
 {
@@ -57,10 +58,35 @@ Character	&Character::operator= ( Character const &other )
 
 void	Character::equip( AMateria *m )
 {
+	bool	added = false;
+
 	for (int i = 0; i < inventorySize; i++)
 	{
-		if ( _inventory)
+		if (_inventory[i] == NULL)
+		{
+			_inventory[i] = m;
+			added = true;
+		}
 	}
+	if (added)
+	{
+		for (int i = 0; i < inventorySize; i++)
+		{
+			if (_saveMateria[i] == NULL)
+				_saveMateria[i] = m;
+		}
+	}
+	else
+	{
+		std::cout << "Your Inventory is currently full, impossible to add " << m->getType();
+		std::cout << " materia." << std::endl;
+	}
+}
+
+void	Character::unequip( int idx )
+{
+	if (_inventory[idx] == NULL)
+		return ;
 }
 
 std::string const	&Character::getName( void ) const { return (_name); }
