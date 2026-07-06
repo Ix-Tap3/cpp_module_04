@@ -12,6 +12,7 @@
 
 #pragma once
 # include "AMateria.hpp"
+# include "ICharacter.hpp"
 
 class	Ice:	public AMateria
 {
@@ -22,5 +23,6 @@ public:
 
 	Ice &operator=	( Ice const & );
 
-	Ice	*clone( void ) const;
+	Ice		*clone( void ) const;
+	void	use( ICharacter & );
 };

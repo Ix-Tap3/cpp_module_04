@@ -15,9 +15,10 @@
 class Character:	public ICharacter
 {
 private:
-	static const int	inventorySize;
+	static const int	inventorySize = 4;
 	std::string	_name;
-	AMateria	**_inventory;
+	AMateria	*_inventory[inventorySize];
+	AMateria	*_saveMateria[inventorySize];
 
 public:
 	Character	( void );

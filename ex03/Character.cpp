@@ -11,10 +11,7 @@
 /* ************************************************************************** */
 
 #include "Character.hpp"
-#include "AMateria.hpp"
 #include <iostream>
-
-int	const Character::inventorySize = 4;
 
 Character::~Character	( void )
 {
@@ -26,12 +23,11 @@ Character::~Character	( void )
 }
 Character::Character	( void ): _name("Le Pyrobarbare")
 {
-	std::cout << "Character constructor" << std::endl;
-	_inventory = new(std::nothrow) AMateria*[inventorySize];
-	if (_inventory == NULL)
+	std::cout << "Character constructor" << std::endl;	
+	for (int i = 0; i < inventorySize; i++)
 	{
-		std::cerr << "Error: Inventory allocation failed." << std::endl;
-		return ;
+		_inventory[i] = NULL;
+		_saveMateria[i] = NULL;
 	}
 }
 Character::Character	( std::string name ): _name(name)
@@ -48,8 +44,23 @@ Character::Character	( Character const &other )
 Character	&Character::operator= ( Character const &other )
 {
 	if (this != &other)
-		this->_name = other._name;
+	{
+		for (int i = 0; i < inventorySize; i ++)
+		{
+			this->_inventory[i] = other._inventory[i];
+			this->_saveMateria[i] = other._saveMateria[i];
+			this->_name = other._name;
+		}
+	}
 	return (*this);
+}
+
+void	Character::equip( AMateria *m )
+{
+	for (int i = 0; i < inventorySize; i++)
+	{
+		if ( _inventory)
+	}
 }
 
 std::string const	&Character::getName( void ) const { return (_name); }
