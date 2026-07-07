@@ -19,6 +19,7 @@ int	main( void )
 	AMateria	*test = new Ice();
 	AMateria	*test2 = new Ice();
 	FtList		*lst = new FtList();
+	FtList		*save = lst;
 
 	ftLstPushBack(&lst, new FtList(*test));
 	ftLstPushBack(&lst, new FtList(*test2));
@@ -28,4 +29,5 @@ int	main( void )
 		std::cout << "lst: " << lst->getContent()->getType() << std::endl;
 		lst = lst->getNextElem();
 	}
+	lst->destroyLst(save);
 }

@@ -83,3 +83,18 @@ void	ftLstAddFront( FtList **lst, FtList *node )
 	node->setNextElem(*lst);
 	*lst = node;
 }
+
+void	FtList::destroyLst( FtList *lst )
+{
+	FtList	*next;
+
+	if (!lst)
+		return ;
+	while (lst)
+	{
+		next = lst->getNextElem();
+		delete lst->getContent();
+		delete lst;
+		lst = next;
+	}
+}

@@ -31,6 +31,7 @@ public:
 	FtList		*getNextElem( void ) const;
 	void		setContent( AMateria * );
 	void		setNextElem( FtList * );
+	void		destroyLst( FtList * );
 
 	FtList	*ftLstLast( FtList * ) const;
 };
