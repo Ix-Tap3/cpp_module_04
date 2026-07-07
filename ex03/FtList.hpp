@@ -22,6 +22,7 @@ private:
 public:
 	FtList	( void );
 	FtList	( FtList const & );
+	FtList	( AMateria & );
 	~FtList	( void );
 
 	FtList &operator=	( FtList const & );
@@ -30,4 +31,9 @@ public:
 	FtList		*getNextElem( void ) const;
 	void		setContent( AMateria * );
 	void		setNextElem( FtList * );
+
+	FtList	*ftLstLast( FtList * ) const;
 };
+
+void	ftLstPushBack( FtList **, FtList * );
+void	ftLstAddFront( FtList **, FtList * );

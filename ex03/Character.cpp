@@ -56,7 +56,7 @@ Character	&Character::operator= ( Character const &other )
 	return (*this);
 }
 
-void	Character::equip( AMateria *m )
+void	Character::equip( AMateria &m )
 {
 	bool	added = false;
 
@@ -64,7 +64,7 @@ void	Character::equip( AMateria *m )
 	{
 		if (_inventory[i] == NULL)
 		{
-			_inventory[i] = m;
+			_inventory[i] = &m;
 			added = true;
 		}
 	}
@@ -73,12 +73,12 @@ void	Character::equip( AMateria *m )
 		for (int i = 0; i < inventorySize; i++)
 		{
 			if (_saveMateria[i] == NULL)
-				_saveMateria[i] = m;
+				_saveMateria[i] = &m;
 		}
 	}
 	else
 	{
-		std::cout << "Your Inventory is currently full, impossible to add " << m->getType();
+		std::cout << "Your Inventory is currently full, impossible to add " << m.getType();
 		std::cout << " materia." << std::endl;
 	}
 }
@@ -89,6 +89,16 @@ void	Character::unequip( int idx )
 		return ;
 }
 
+void	Character::use( int idx, ICharacter &target )
+{
+	if (idx < 0 || idx > inventorySize)
+	{
+		std::cerr << "Impossible to access inventory at index " << idx << "." << std::endl;
+		return ;
+	}
+	_inventory[idx]->use(target);
+}
+
 std::string const	&Character::getName( void ) const { return (_name); }
-int const			Character::getInventorySize( void ) const { return (inventorySize); }
+int 				Character::getInventorySize( void ) const { return (inventorySize); }
 

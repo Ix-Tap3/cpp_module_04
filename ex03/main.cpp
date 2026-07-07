@@ -11,13 +11,21 @@
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "FtList.hpp"
 #include <iostream>
 
 int	main( void )
 {
-	Ice	materia;
-	Ice	*m = materia.clone();
+	AMateria	*test = new Ice();
+	AMateria	*test2 = new Ice();
+	FtList		*lst = new FtList();
 
-	std::cout << "materia type: " << materia.getType() << std::endl;
-	std::cout << "m type: " << m->getType() << std::endl;
+	ftLstPushBack(&lst, new FtList(*test));
+	ftLstPushBack(&lst, new FtList(*test2));
+
+	while (lst)
+	{
+		std::cout << "lst: " << lst->getContent()->getType() << std::endl;
+		lst = lst->getNextElem();
+	}
 }

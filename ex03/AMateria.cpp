@@ -31,3 +31,8 @@ AMateria	&AMateria::operator=( AMateria const &other )
 		this->type = other.type;
 	return (*this);
 }
+
+void	AMateria::use( ICharacter &character )
+{
+	std::cout << "AMateria use by " << character.getName() << std::endl;
+}

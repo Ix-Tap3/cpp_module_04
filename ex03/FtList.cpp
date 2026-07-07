@@ -12,9 +12,18 @@
 
 #include <iostream>
 #include "FtList.hpp"
+#include "AMateria.hpp"
 
-FtList::FtList	( void ): _content(NULL), _next(NULL) { std::cout << "FtList constructor called" << std::endl; }
 FtList::~FtList	( void ) { std::cout << "FtList destructor called" << std::endl; }
+FtList::FtList	( void ): _content(NULL), _next(NULL)
+{
+	std::cout << "FtList constructor called" << std::endl;
+}
+FtList::FtList	( AMateria &content ): _next(NULL)
+{
+	std::cout << "FtList content constructor called" << std::endl;
+	this->_content = &content;
+}
 FtList::FtList	( FtList const &other )
 {
 	std::cout << "FtList copy constructor called" << std::endl;
@@ -35,4 +44,42 @@ FtList	&FtList::operator= ( FtList const &other )
 		this->_next = new FtList(other);
 	}
 	return (*this);
+}
+
+FtList	*FtList::ftLstLast( FtList *lst ) const
+{
+	if (!lst)
+		return (NULL);
+	while (lst)
+	{
+		if (!lst->_next)
+			return (lst);
+		lst = lst->_next;
+	}
+	return (NULL);
+}
+
+void	ftLstPushBack( FtList **lst, FtList *node )
+{
+	FtList	*tmp;
+
+	if (!lst || !node)
+		return ;
+	if (!(*lst)->getContent())
+	{
+		*lst = node;
+		return ;
+	}
+	tmp = (*lst)->ftLstLast(*lst);
+	if (!tmp)
+		return ;
+	tmp->setNextElem(node);
+}
+
+void	ftLstAddFront( FtList **lst, FtList *node )
+{
+	if (!lst || !node)
+		return ;
+	node->setNextElem(*lst);
+	*lst = node;
 }
