@@ -16,19 +16,36 @@
 
 Character::~Character	( void )
 {
+	FtList	*next;
+	FtList	*save = this->_materiaCollector;
+
 	std::cout << "Character destructor" << std::endl;
+	while (this->_materiaCollector && this->_materiaCollector->getContent())
+	{
+		std::cout << "enter here" << std::endl;
+		next = this->_materiaCollector->getNextElem();
+		delete this->_materiaCollector->getContent();
+		delete this->_materiaCollector;
+		this->_materiaCollector = next;
+	}
+	delete save;
+	for (int i = 0; i < inventorySize; i++)
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 }
 Character::Character	( void ): _name("Le Pyrobarbare")
 {
-	std::cout << "Character constructor" << std::endl;	
+	std::cout << "Character constructor" << std::endl;
 	for (int i = 0; i < inventorySize; i++)
-	{
 		_inventory[i] = NULL;
-	}
+	_materiaCollector = new FtList();
 }
 Character::Character	( std::string name ): _name(name)
 {
 	std::cout << "Character string constructor" << std::endl;
+	for (int i = 0; i < inventorySize; i++)
+		_inventory[i] = NULL;
+	_materiaCollector = new FtList();
 }
 Character::Character	( Character const &other )
 {
@@ -41,12 +58,10 @@ Character	&Character::operator= ( Character const &other )
 {
 	if (this != &other)
 	{
+		this->_name = other._name;
+		this->_materiaCollector = other._materiaCollector;
 		for (int i = 0; i < inventorySize; i ++)
-		{
 			this->_inventory[i] = other._inventory[i];
-			this->_saveMateria[i] = other._saveMateria[i];
-			this->_name = other._name;
-		}
 	}
 	return (*this);
 }
@@ -56,35 +71,27 @@ int 				Character::getInventorySize( void ) const { return (inventorySize); }
 
 void	Character::equip( AMateria &m )
 {
-	bool	added = false;
+	int	i = 0;
 
-	for (int i = 0; i < inventorySize; i++)
+	while (i < inventorySize)
 	{
 		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = &m;
-			added = true;
+			return ;
 		}
+		i++;
 	}
-	if (added)
-	{
-		for (int i = 0; i < inventorySize; i++)
-		{
-			if (_saveMateria[i] == NULL)
-				_saveMateria[i] = &m;
-		}
-	}
-	else
-	{
-		std::cout << "Your Inventory is currently full, impossible to add " << m.getType();
-		std::cout << " materia." << std::endl;
-	}
+	ftLstPushBack(&this->_materiaCollector, new FtList(m));
+	std::cout << "Your Inventory is currently full, impossible to add " << m.getType();
+	std::cout << " materia." << std::endl;
 }
 
 void	Character::unequip( int idx )
 {
 	if ( idx < 0 || idx > inventorySize || !_inventory[idx])
 		return ;
+	ftLstPushBack(&this->_materiaCollector, new FtList(*this->_inventory[idx]));
 	_inventory[idx] = NULL;
 }
 

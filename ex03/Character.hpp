@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ICharacter.hpp"
+#pragma once
+# include "ICharacter.hpp"
+# include "FtList.hpp"
 
 class Character:	public ICharacter
 {
@@ -18,7 +20,7 @@ private:
 	static const int	inventorySize = 4;
 	std::string			_name;
 	AMateria			*_inventory[inventorySize];
-	AMateria			**_saveMateria;
+	FtList				*_materiaCollector;
 
 public:
 	Character	( void );

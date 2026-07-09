@@ -33,10 +33,7 @@ FtList::FtList	( FtList const &other )
 		*this = other;
 }
 
-FtList::~FtList	( void )
-{
-	std::cout << "FtList destructor called" << std::endl;
-}
+FtList::~FtList	( void ){ std::cout << "FtList destructor called" << std::endl; }
 
 // --- Operator Overloading
 FtList	&FtList::operator= ( FtList const &other )
