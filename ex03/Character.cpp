@@ -16,10 +16,6 @@
 
 Character::~Character	( void )
 {
-	// for (int i = 0; i < inventorySize; i++)
-	// 	if (_inventory[i] != NULL)
-	// if (_inventory[i] != NULL)
-	// 	delete _inventory;
 	std::cout << "Character destructor" << std::endl;
 }
 Character::Character	( void ): _name("Le Pyrobarbare")
@@ -28,7 +24,6 @@ Character::Character	( void ): _name("Le Pyrobarbare")
 	for (int i = 0; i < inventorySize; i++)
 	{
 		_inventory[i] = NULL;
-		_saveMateria[i] = NULL;
 	}
 }
 Character::Character	( std::string name ): _name(name)
@@ -55,6 +50,9 @@ Character	&Character::operator= ( Character const &other )
 	}
 	return (*this);
 }
+
+std::string const	&Character::getName( void ) const { return (_name); }
+int 				Character::getInventorySize( void ) const { return (inventorySize); }
 
 void	Character::equip( AMateria &m )
 {
@@ -85,8 +83,9 @@ void	Character::equip( AMateria &m )
 
 void	Character::unequip( int idx )
 {
-	if (_inventory[idx] == NULL)
+	if ( idx < 0 || idx > inventorySize || !_inventory[idx])
 		return ;
+	_inventory[idx] = NULL;
 }
 
 void	Character::use( int idx, ICharacter &target )
@@ -98,7 +97,4 @@ void	Character::use( int idx, ICharacter &target )
 	}
 	_inventory[idx]->use(target);
 }
-
-std::string const	&Character::getName( void ) const { return (_name); }
-int 				Character::getInventorySize( void ) const { return (inventorySize); }
 

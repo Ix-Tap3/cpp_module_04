@@ -13,7 +13,10 @@
 #include "Ice.hpp"
 #include <iostream>
 
-Ice::~Ice	( void ) { std::cout << "Ice destructor" << std::endl; }
+Ice::~Ice	( void )
+{
+	std::cout << "Ice destructor" << std::endl;
+}
 Ice::Ice	( void ): AMateria() { type = "ice"; std::cout << "Ice constructor" << std::endl; }
 Ice::Ice	( Ice const &other ): AMateria( other )
 {

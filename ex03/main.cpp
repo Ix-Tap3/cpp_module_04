@@ -14,6 +14,20 @@
 #include "FtList.hpp"
 #include <iostream>
 
+static void	destroyLst( FtList *lst )
+{
+	FtList		*next;
+
+	while (lst)
+	{
+		std::cout << "enter here" << std::endl;
+		next = lst->getNextElem();
+		delete lst->getContent();
+		delete lst;
+		lst = next;
+	}
+}
+
 int	main( void )
 {
 	AMateria	*test = new Ice();
@@ -23,11 +37,6 @@ int	main( void )
 
 	ftLstPushBack(&lst, new FtList(*test));
 	ftLstPushBack(&lst, new FtList(*test2));
-
-	while (lst)
-	{
-		std::cout << "lst: " << lst->getContent()->getType() << std::endl;
-		lst = lst->getNextElem();
-	}
-	lst->destroyLst(save);
+	destroyLst(lst);
+	delete save;
 }
