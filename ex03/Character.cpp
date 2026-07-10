@@ -17,10 +17,9 @@
 Character::~Character	( void )
 {
 	FtList	*next;
-	FtList	*save = this->_materiaCollector;
 
 	std::cout << "Character destructor" << std::endl;
-	while (this->_materiaCollector && this->_materiaCollector->getContent())
+	while (this->_materiaCollector)
 	{
 		std::cout << "enter here" << std::endl;
 		next = this->_materiaCollector->getNextElem();
@@ -28,10 +27,10 @@ Character::~Character	( void )
 		delete this->_materiaCollector;
 		this->_materiaCollector = next;
 	}
-	delete save;
 	for (int i = 0; i < inventorySize; i++)
 		if (this->_inventory[i])
 			delete this->_inventory[i];
+	// delete this->_materiaCollector;
 }
 Character::Character	( void ): _name("Le Pyrobarbare")
 {

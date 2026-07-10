@@ -17,23 +17,23 @@
 // --- constructors / Destructor
 FtList::FtList	( void ): _content(NULL), _next(NULL)
 {
-	std::cout << "FtList constructor called" << std::endl;
+	std::cout << "FtList constructor" << std::endl;
 }
 
 FtList::FtList	( AMateria &content ): _next(NULL)
 {
-	std::cout << "FtList content constructor called" << std::endl;
+	std::cout << "FtList content constructor" << std::endl;
 	this->_content = &content;
 }
 
 FtList::FtList	( FtList const &other )
 {
-	std::cout << "FtList copy constructor called" << std::endl;
+	std::cout << "FtList copy constructor" << std::endl;
 	if (this != &other)
 		*this = other;
 }
 
-FtList::~FtList	( void ){ std::cout << "FtList destructor called" << std::endl; }
+FtList::~FtList	( void ) { std::cout << "FtList destructor" << std::endl; }
 
 // --- Operator Overloading
 FtList	&FtList::operator= ( FtList const &other )
@@ -49,11 +49,13 @@ FtList	&FtList::operator= ( FtList const &other )
 	return (*this);
 }
 
+// --- Setters and Getters
 AMateria	*FtList::getContent( void ) const { return (_content); }
 FtList		*FtList::getNextElem( void ) const { return (_next); }
 void		FtList::setContent( AMateria *m ) { this->_content = m; }
 void		FtList::setNextElem( FtList *next ) { this->_next = next; }
 
+// --- Member functions
 FtList	*FtList::ftLstLast( FtList *lst ) const
 {
 	if (!lst)
@@ -67,6 +69,7 @@ FtList	*FtList::ftLstLast( FtList *lst ) const
 	return (NULL);
 }
 
+// --- Non member functions
 void	ftLstPushBack( FtList **lst, FtList *node )
 {
 	FtList	*tmp;
@@ -75,7 +78,10 @@ void	ftLstPushBack( FtList **lst, FtList *node )
 		return ;
 	if (!(*lst)->getContent())
 	{
-		*lst = node;
+		(*lst)->setContent(node->getContent());
+		if (node->getNextElem())
+			(*lst)->setNextElem(node->getNextElem());
+		delete node;
 		return ;
 	}
 	tmp = (*lst)->ftLstLast(*lst);

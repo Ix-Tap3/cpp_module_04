@@ -13,7 +13,6 @@
 #include <iostream>
 #include "Ice.hpp"
 #include "Cure.hpp"
-#include "FtList.hpp"
 #include "Character.hpp"
 
 int	main( void )
@@ -32,4 +31,11 @@ int	main( void )
 	player.equip(*c1);
 	player.equip(*c3);
 	player.equip(*c2);
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	for (int i = 0; i < player.getInventorySize(); i++)
+		player.use(i, player);
+	std::cout << std::endl;
+	std::cout << std::endl;
 }
