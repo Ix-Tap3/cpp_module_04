@@ -23,7 +23,9 @@ int	main( void )
 	AMateria	*c2 = new Cure();
 	AMateria	*c3 = new Cure();
 	Character	player("Ix-Tap3");
+	Character	player2("p2");
 	
+	player2 = player;
 	std::cout << std::endl;
 	std::cout << std::endl;
 	player.equip(*test);

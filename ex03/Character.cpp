@@ -19,9 +19,8 @@ Character::~Character	( void )
 	FtList	*next;
 
 	std::cout << "Character destructor" << std::endl;
-	while (this->_materiaCollector)
+	while (this->_materiaCollector && this->_materiaCollector->getContent())
 	{
-		std::cout << "enter here" << std::endl;
 		next = this->_materiaCollector->getNextElem();
 		delete this->_materiaCollector->getContent();
 		delete this->_materiaCollector;
@@ -30,7 +29,6 @@ Character::~Character	( void )
 	for (int i = 0; i < inventorySize; i++)
 		if (this->_inventory[i])
 			delete this->_inventory[i];
-	// delete this->_materiaCollector;
 }
 Character::Character	( void ): _name("Le Pyrobarbare")
 {
@@ -60,7 +58,14 @@ Character	&Character::operator= ( Character const &other )
 		this->_name = other._name;
 		this->_materiaCollector = other._materiaCollector;
 		for (int i = 0; i < inventorySize; i ++)
-			this->_inventory[i] = other._inventory[i];
+		{
+			if (this->_inventory[i])
+				delete this->_inventory[i];
+			if (other._inventory[i])
+				this->_inventory[i] = other._inventory[i]->clone();
+			else
+				this->_inventory[i] = NULL;
+		}
 	}
 	return (*this);
 }
