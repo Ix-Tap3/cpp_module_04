@@ -38,13 +38,18 @@ FtList::~FtList	( void ) { std::cout << "FtList destructor" << std::endl; }
 // --- Operator Overloading
 FtList	&FtList::operator= ( FtList const &other )
 {
-	std::cout << "enter =" << std::endl;
 	if (this != &other)
 	{
 		if (this->_content)
-			delete	this->_content;
-		this->_content = other._content->clone();
-		this->_next = const_cast<FtList *>(other.getNextElem());
+			delete this->_content;
+		if (other._content)
+			this->_content = other._content->clone();
+		if (other._next)
+		{
+			if (this->_next)
+				ftLstClear(&this->_next);
+			*this->_next = *other._next;
+		}
 	}
 	return (*this);
 }
@@ -96,4 +101,21 @@ void	ftLstAddFront( FtList **lst, FtList *node )
 		return ;
 	node->setNextElem(*lst);
 	*lst = node;
+}
+
+void	ftLstClear( FtList **lst )
+{
+	FtList	*tmp = *lst;
+	FtList	*next;
+
+	if (!lst || !*lst)
+		return ;
+	while (tmp)
+	{
+		next = tmp->getNextElem();
+		delete tmp->getContent();
+		delete tmp;
+		tmp = next;
+	}
+	*lst = NULL;
 }

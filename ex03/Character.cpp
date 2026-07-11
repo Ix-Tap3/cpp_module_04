@@ -13,19 +13,13 @@
 #include <iostream>
 #include "Character.hpp"
 #include "AMateria.hpp"
+#include "FtList.hpp"
 
+// --- Constructors and Destructor
 Character::~Character	( void )
 {
-	FtList	*next;
-
 	std::cout << "Character destructor" << std::endl;
-	while (this->_materiaCollector && this->_materiaCollector->getContent())
-	{
-		next = this->_materiaCollector->getNextElem();
-		delete this->_materiaCollector->getContent();
-		delete this->_materiaCollector;
-		this->_materiaCollector = next;
-	}
+	ftLstClear(&this->_materiaCollector);
 	for (int i = 0; i < inventorySize; i++)
 		if (this->_inventory[i])
 			delete this->_inventory[i];
@@ -51,12 +45,13 @@ Character::Character	( Character const &other )
 		*this = other;
 }
 
+// --- Operator Overloading
 Character	&Character::operator= ( Character const &other )
 {
 	if (this != &other)
 	{
 		this->_name = other._name;
-		this->_materiaCollector = other._materiaCollector;
+
 		for (int i = 0; i < inventorySize; i ++)
 		{
 			if (this->_inventory[i])
@@ -66,13 +61,23 @@ Character	&Character::operator= ( Character const &other )
 			else
 				this->_inventory[i] = NULL;
 		}
+
+		if (other._materiaCollector)
+		{
+			if (this->_materiaCollector)
+				ftLstClear(&this->_materiaCollector);
+			this->_materiaCollector = new FtList();
+			*this->_materiaCollector = *other._materiaCollector;
+		}
 	}
 	return (*this);
 }
 
+// --- Setters and Getters
 std::string const	&Character::getName( void ) const { return (_name); }
 int 				Character::getInventorySize( void ) const { return (inventorySize); }
 
+// --- Member functions
 void	Character::equip( AMateria &m )
 {
 	int	i = 0;

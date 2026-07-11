@@ -37,3 +37,4 @@ public:
 
 void	ftLstPushBack( FtList **, FtList * );
 void	ftLstAddFront( FtList **, FtList * );
+void	ftLstClear( FtList ** );
