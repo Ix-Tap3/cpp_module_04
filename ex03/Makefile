@@ -1,7 +1,7 @@
 NAME = AMateria
 CC = c++
 FLAGS = -g -Wall -Werror -Wextra -std=c++98
-SRCS = AMateria.cpp Ice.cpp Cure.cpp Character.cpp FtList.cpp main.cpp
+SRCS = AMateria.cpp Ice.cpp Cure.cpp Character.cpp FtList.cpp MateriaSource.cpp main.cpp
 OBJS = ${SRCS:%.cpp=%.o}
 
 .PHONY: all clean fclean re

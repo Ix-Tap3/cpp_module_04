@@ -6,7 +6,7 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 11:51:25 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/06 14:07:03 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/11 15:51:50 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ std::string const	&Character::getName( void ) const { return (_name); }
 int 				Character::getInventorySize( void ) const { return (inventorySize); }
 
 // --- Member functions
-void	Character::equip( AMateria &m )
+void	Character::equip( AMateria *m )
 {
 	int	i = 0;
 
@@ -86,13 +86,12 @@ void	Character::equip( AMateria &m )
 	{
 		if (_inventory[i] == NULL)
 		{
-			_inventory[i] = &m;
+			_inventory[i] = m;
 			return ;
 		}
 		i++;
 	}
-	ftLstPushBack(&this->_materiaCollector, new FtList(m));
-	std::cout << "Your Inventory is currently full, impossible to add " << m.getType();
+	std::cout << "Your Inventory is currently full, impossible to add " << m->getType();
 	std::cout << " materia." << std::endl;
 }
 

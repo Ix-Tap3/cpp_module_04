@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
+/*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/04 11:34:15 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/04 11:44:51 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/07/11 14:21:00 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/07/11 14:23:51 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-# include <string>
+# include "AMateria.hpp"
 
-class AMateria;
-
-class ICharacter
+class IMateriaSource
 {
 public:
-	virtual ~ICharacter	( void ) {}
-	
-	virtual std::string const	&getName( void ) const = 0;
-	virtual void				equip( AMateria * ) = 0;
-	virtual void				unequip( int ) = 0;
-	virtual void				use( int, ICharacter & ) = 0;
+	virtual	~IMateriaSource( void ) { };
+
+	virtual void		learnMateria( AMateria * ) = 0;
+	virtual AMateria	*createMateria(std::string const & ) = 0;
 };

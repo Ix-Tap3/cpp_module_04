@@ -16,7 +16,7 @@
 
 // --- constructors / Destructor
 FtList::FtList	( void ): _content(NULL), _next(NULL)
-{
+{ 
 	std::cout << "FtList constructor" << std::endl;
 }
 

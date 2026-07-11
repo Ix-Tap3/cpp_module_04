@@ -33,7 +33,7 @@ public:
 	std::string const	&getName( void ) const;
 	int					getInventorySize( void ) const;
 
-	void	equip( AMateria & );
+	void	equip( AMateria * );
 	void	unequip( int );
 	void	use( int, ICharacter & );
 };
