@@ -13,15 +13,17 @@
 #include <iostream>
 #include "Cure.hpp"
 
+// Constructors and destructor
 Cure::Cure	( void ): AMateria() { type = "cure"; std::cout << "Cure constructor" << std::endl; }
-Cure::~Cure	( void ) { std::cout << "Cure destructor" << std::endl; }
 Cure::Cure	( Cure const &other ): AMateria( other )
 {
 	std::cout << "Cure copy constructor" << std::endl;
 	if (this != &other)
 		*this = other;
 }
+Cure::~Cure	( void ) { std::cout << "Cure destructor" << std::endl; }
 
+// --- Operator overloading
 Cure	&Cure::operator=( Cure const &other )
 {
 	if (this != &other)
@@ -29,6 +31,7 @@ Cure	&Cure::operator=( Cure const &other )
 	return (*this);
 }
 
+// --- Member Functions
 Cure	*Cure::clone( void ) const
 {
 	Cure	*newCure = new Cure();

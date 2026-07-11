@@ -13,10 +13,7 @@
 #include "Ice.hpp"
 #include <iostream>
 
-Ice::~Ice	( void )
-{
-	std::cout << "Ice destructor" << std::endl;
-}
+// Constructors and destructor
 Ice::Ice	( void ): AMateria() { type = "ice"; std::cout << "Ice constructor" << std::endl; }
 Ice::Ice	( Ice const &other ): AMateria( other )
 {
@@ -24,7 +21,9 @@ Ice::Ice	( Ice const &other ): AMateria( other )
 	if (this != &other)
 		*this = other;
 }
+Ice::~Ice	( void ) { std::cout << "Ice destructor" << std::endl; }
 
+// --- Operator overloading
 Ice	&Ice::operator=( Ice const &other )
 {
 	if (this != &other)
@@ -32,6 +31,7 @@ Ice	&Ice::operator=( Ice const &other )
 	return (*this);
 }
 
+// --- Member Functions
 Ice	*Ice::clone( void ) const
 {
 	Ice	*newIce = new Ice();

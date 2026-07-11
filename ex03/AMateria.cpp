@@ -13,7 +13,7 @@
 #include "AMateria.hpp"
 #include <iostream>
 
-AMateria::~AMateria	( void ) { std::cout << "AMateria destructor" << std::endl; }
+// Constructors and destructor
 AMateria::AMateria	( void ): type("Unknown") { std::cout << "AMateria constructor" << std::endl; }
 AMateria::AMateria	( std::string const &type ): type(type) { std::cout << "AMateria string constructor" << std::endl; }
 AMateria::AMateria	( AMateria const &other )
@@ -22,9 +22,9 @@ AMateria::AMateria	( AMateria const &other )
 	if (this != &other)
 		*this = other;
 }
+AMateria::~AMateria	( void ) { std::cout << "AMateria destructor" << std::endl; }
 
-std::string const	&AMateria::getType( void ) const { return (type); }
-
+// --- Operator overloading
 AMateria	&AMateria::operator=( AMateria const &other )
 {
 	if (this != &other)
@@ -32,6 +32,10 @@ AMateria	&AMateria::operator=( AMateria const &other )
 	return (*this);
 }
 
+// --- Getters and Setters
+std::string const	&AMateria::getType( void ) const { return (type); }
+
+// --- Member Functions
 void	AMateria::use( ICharacter &character )
 {
 	std::cout << "AMateria use by " << character.getName() << std::endl;

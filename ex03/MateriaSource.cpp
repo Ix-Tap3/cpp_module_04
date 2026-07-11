@@ -58,6 +58,7 @@ MateriaSource	&MateriaSource::operator= ( MateriaSource const &other )
 // --- Getters and Setters
 int	MateriaSource::getSourceSize( void ) const { return (sourceSize); }
 
+// --- Member functions
 void	MateriaSource::learnMateria( AMateria *m )
 {
 	for (int i = 0; i < sourceSize; i++)
@@ -73,7 +74,6 @@ void	MateriaSource::learnMateria( AMateria *m )
 	delete m;
 }
 
-// --- Member functions
 AMateria	*MateriaSource::createMateria( std::string const &type )
 {
 	for (int i = 0; i < sourceSize; i++)

@@ -16,14 +16,6 @@
 #include "FtList.hpp"
 
 // --- Constructors and Destructor
-Character::~Character	( void )
-{
-	std::cout << "Character destructor" << std::endl;
-	ftLstClear(&this->_materiaCollector);
-	for (int i = 0; i < inventorySize; i++)
-		if (this->_inventory[i])
-			delete this->_inventory[i];
-}
 Character::Character	( void ): _name("Le Pyrobarbare")
 {
 	std::cout << "Character constructor" << std::endl;
@@ -43,6 +35,14 @@ Character::Character	( Character const &other )
 	std::cout << "Character copy constructor" << std::endl;
 	if (this != &other)
 		*this = other;
+}
+Character::~Character	( void )
+{
+	std::cout << "Character destructor" << std::endl;
+	ftLstClear(&this->_materiaCollector);
+	for (int i = 0; i < inventorySize; i++)
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 }
 
 // --- Operator Overloading
