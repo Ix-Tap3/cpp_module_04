@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 09:46:47 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 09:50:47 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/06/25 17:25:20 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/06/29 09:58:10 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Animal.hpp"
 
-class	Cat: public Animal
+class	Dog: public Animal
 {
 public:
-	Cat		( void );
-	Cat		( const Cat & );
-	~Cat	( void );
+	Dog		( void );
+	Dog		( const Dog & );
+	~Dog	( void );
 
-	Cat	&operator=	( const Cat &);
-	void	makeSound( void );
+	Dog	&operator= ( const Dog & );
+
+	void	makeSound( void ) const;
 };

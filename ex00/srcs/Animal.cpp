@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include <iostream>
+#include "../includes/Animal.hpp"
 
 Animal::~Animal	(void) {std::cout << "Animal Destructor called" << std::endl;}
 Animal::Animal	(void): type("Animal") {std::cout << "Animal Default constructor called" << std::endl;}
@@ -29,6 +29,6 @@ Animal	&Animal::operator= (const Animal &other)
 	return (*this);
 }
 
-std::string	Animal::getType(void) {return (type);}
+std::string	Animal::getType(void) const {return (type);}
 
-void	Animal::makeSound(void) {std::cout << "Animal make some random Animal noises!" << std::endl;}
+void	Animal::makeSound(void) const {std::cout << "Animal make some random Animal noises!" << std::endl;}

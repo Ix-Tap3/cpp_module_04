@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "WrongAnimal.hpp"
+#include "../includes/WrongAnimal.hpp"
 
 WrongAnimal::~WrongAnimal	( void ) { std::cout << "WrongAnimal destructor called" << std::endl; }
 WrongAnimal::WrongAnimal	( void )
@@ -34,9 +34,9 @@ WrongAnimal	&WrongAnimal::operator= ( const WrongAnimal &other )
 	return (*this);
 }
 
-std::string	WrongAnimal::getType( void ) { return type; }
+std::string	WrongAnimal::getType( void ) const { return type; }
 
-void	WrongAnimal::makeSound( void ) 
+void	WrongAnimal::makeSound( void ) const
 {
 	std::cout << "WrongAnimal do some random wrong noises" << std::endl;
 }

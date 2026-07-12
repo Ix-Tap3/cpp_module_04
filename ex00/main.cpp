@@ -10,47 +10,81 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include "WrongCat.hpp"
-#include "WrongAnimal.hpp"
 #include <iostream>
+#include "includes/Dog.hpp"
+#include "includes/Cat.hpp"
+#include "includes/WrongCat.hpp"
+#include "includes/WrongAnimal.hpp"
 
 int	main( void )
 {
 	{
+		std::cout << "========================= Test 1 =========================" << std::endl;
 		Dog		*wouf = new Dog();
 		Cat		*miou = new Cat();
 		Animal	*randomSound = new Animal();
 
+		std::cout << std::endl;
+		std::cout << "wouf: ";
 		wouf->makeSound();
-		std::cout << "wouf est de type: " << wouf->getType() << std::endl;
+		std::cout << "wouf type: " << wouf->getType() << std::endl;
+		std::cout << "miou: ";
 		miou->makeSound();
-		std::cout << "miou est de type: " << miou->getType() << std::endl;
+		std::cout << "miou type: " << miou->getType() << std::endl;
+		std::cout << "animal: ";
 		randomSound->makeSound();
-		std::cout << "animal est de type: " << randomSound->getType() << std::endl;
+		std::cout << "animal type: " << randomSound->getType() << std::endl;
+		std::cout << std::endl;
+
 		delete wouf;
 		delete miou;
 		delete randomSound;
+		std::cout << "==========================================================" << std::endl;
+		std::cout << std::endl;
 		std::cout << std::endl;
 	}
 	{
+		std::cout << "========================= Test 2 =========================" << std::endl;
 		WrongAnimal	*randomEvilAnimal = new WrongAnimal();
+		WrongAnimal	*notCat = new WrongCat();
 		WrongCat	*batCat = new WrongCat();
-		Animal		*randomAnimal = new Animal();
-		Cat			*miou = new Cat();
 
+		std::cout << std::endl;
+		std::cout << "randomEvilAnimal: ";
 		randomEvilAnimal->makeSound();
-		std::cout << "randomEvilAnimal est de type: " << randomEvilAnimal->getType() << std::endl;
-		randomAnimal->makeSound();
-		std::cout << "randomAnimal est de type: " << randomAnimal->getType() << std::endl;
-		miou->makeSound();
-		std::cout << "miou est de type: " << miou->getType() << std::endl;
+		std::cout << "randomEvilAnimal type: " << randomEvilAnimal->getType() << std::endl;
+		std::cout << "notCat: ";
+		notCat->makeSound();
+		std::cout << "notCat type: " << notCat->getType() << std::endl;
+		std::cout << "batCat: ";
 		batCat->makeSound();
-		std::cout << "batCat est de type: " << batCat->getType() << std::endl;
-		delete randomAnimal;
+		std::cout << "batCat type: " << batCat->getType() << std::endl;
+
+		std::cout << std::endl;
 		delete randomEvilAnimal;
-		delete miou;
+		delete notCat;
 		delete batCat;
+		std::cout << "==========================================================" << std::endl;
+		std::cout << std::endl;
+		std::cout << std::endl;
+	}
+	{
+		std::cout << "========================= Test 3 =========================" << std::endl;
+		const Animal* meta = new Animal();
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
+
+		std::cout << std::endl;
+		std::cout << j->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		i->makeSound();
+		j->makeSound();
+		meta->makeSound();
+		std::cout << std::endl;
+		delete meta;
+		delete i;
+		delete j;
+		std::cout << "==========================================================" << std::endl;
+		return 0;
 	}
 }

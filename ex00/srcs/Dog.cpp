@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Dog.hpp"
+#include "../includes/Dog.hpp"
 
 Dog::Dog	( void ): Animal() { type = "Dog"; std::cout << "Dog constructor called !" << std::endl; }
 Dog::~Dog	( void ) { std::cout << "Dog Destructor called !" << std::endl; };
@@ -30,4 +30,4 @@ Dog	&Dog::operator=	( const Dog &other )
 	return (*this);
 }
 
-void	Dog::makeSound( void ) { std::cout << "wouf wouf wouf wouf" << std::endl; }
+void	Dog::makeSound( void ) const { std::cout << "wouf wouf wouf wouf" << std::endl; }

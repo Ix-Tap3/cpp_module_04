@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "WrongCat.hpp"
+#include "../includes/WrongCat.hpp"
 
 WrongCat::WrongCat	( void ) : WrongAnimal()
 {
@@ -34,7 +34,7 @@ WrongCat	&WrongCat::operator= ( const WrongCat &other )
 	return (*this);
 }
 
-void	WrongCat::makeSound( void )
+void	WrongCat::makeSound( void ) const
 {
 	std::cout << "Wrong miou miou because it's batcat" << std::endl;
 }

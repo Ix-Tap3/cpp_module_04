@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 10:30:02 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 17:09:42 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/06/29 09:46:47 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/06/29 09:50:47 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "WrongAnimal.hpp"
+#include "Animal.hpp"
 
-class	WrongCat: public WrongAnimal
+class	Cat: public Animal
 {
 public:
-	WrongCat	( void );
-	~WrongCat	( void );
-	WrongCat	( const WrongCat & );
+	Cat		( void );
+	Cat		( const Cat & );
+	~Cat	( void );
 
-	WrongCat	&operator=	( const WrongCat & );
+	Cat	&operator=	( const Cat &);
 
-	void	makeSound( void );
+	void	makeSound( void ) const;
 };

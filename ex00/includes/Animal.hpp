@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
+/*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/25 17:25:20 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 09:58:10 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/04/24 16:29:56 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/06/29 10:23:23 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
+#include <string>
 
-class	Dog: public Animal
+class	Animal
 {
-public:
-	Dog		( void );
-	Dog		( const Dog & );
-	~Dog	( void );
+protected:
+	std::string	type;
 
-	Dog	&operator= ( const Dog & );
-	void	makeSound( void );
+public:
+	Animal			(void);
+	Animal			(const Animal &);
+	virtual	~Animal	(void);
+
+	Animal	&operator= (const Animal &);
+
+	std::string		getType(void) const;
+	virtual void	makeSound(void) const;
 };
