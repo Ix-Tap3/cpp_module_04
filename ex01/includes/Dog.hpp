@@ -26,7 +26,7 @@ public:
 
 	Dog	&operator= ( const Dog & );
 
-	void		makeSound( void );
-	void		thinkALot( void );
-	std::string	think( void );
+	void		makeSound( void ) const;
+	void		thinkALot( void ) const;
+	std::string	think( void ) const;
 };

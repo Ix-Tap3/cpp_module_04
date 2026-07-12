@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../includes/Animal.hpp"
 #include <iostream>
 
 Animal::~Animal	(void) {std::cout << "Animal Destructor called" << std::endl;}
@@ -29,6 +29,6 @@ Animal	&Animal::operator= (const Animal &other)
 	return (*this);
 }
 
-std::string	Animal::getType(void) {return (type);}
+std::string	Animal::getType(void) const {return (type);}
 
-void	Animal::makeSound(void) {std::cout << "Animal make some random Animal noises!" << std::endl;}
+void	Animal::makeSound(void) const {std::cout << "Animal make some random Animal noises!" << std::endl;}

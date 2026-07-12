@@ -6,12 +6,12 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:46:41 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 18:36:09 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/12 18:07:27 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Dog.hpp"
+#include "../includes/Dog.hpp"
 
 Dog::Dog	( void ): Animal()
 {
@@ -38,11 +38,13 @@ Dog	&Dog::operator=	( const Dog &other )
 	if (this != &other)
 	{
 		this->type = other.type;
-		this->_brain = other._brain;
+		if (this->_brain)
+			delete this->_brain;
+		this->_brain = other._brain->clone();
 	}
 	return (*this);
 }
 
-void		Dog::makeSound( void ) { std::cout << "wouf wouf wouf wouf" << std::endl; }
-void		Dog::thinkALot( void ) { _brain->displayIdeas(); }
-std::string	Dog::think( void ) { return (_brain->getRandomIdea()); }
+void		Dog::makeSound( void ) const { std::cout << "wouf wouf wouf wouf" << std::endl; }
+void		Dog::thinkALot( void ) const { _brain->displayIdeas(); }
+std::string	Dog::think( void ) const { return (_brain->getRandomIdea()); }

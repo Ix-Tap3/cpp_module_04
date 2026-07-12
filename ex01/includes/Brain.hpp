@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 10:30:02 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 17:09:42 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/06/30 07:48:42 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/07/12 18:05:01 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "WrongAnimal.hpp"
-#include "Brain.hpp"
+#include <string>
 
-class	WrongCat: public WrongAnimal
+class	Brain
 {
 private:
-	Brain	*_brain;
+	static std::string	randomIdeas[12];
+
+protected:
+	std::string	ideas[100];
 
 public:
-	WrongCat	( void );
-	~WrongCat	( void );
-	WrongCat	( const WrongCat & );
+	Brain	( void );
+	Brain	( const Brain & );
+	~Brain	( void );
 
-	WrongCat	&operator=	( const WrongCat & );
+	Brain	&operator=	( const Brain & );
 
-	void		makeSound( void );
-	void		thinkALot( void );
-	std::string	think( void );
+	std::string	getRandomIdea( void ) const;
+
+	Brain	*clone( void ) const;
+	void	fillIdeas( const std::string );
+	void	fillRandomIdeas( int );
+	void	displayIdeas( void );
 };

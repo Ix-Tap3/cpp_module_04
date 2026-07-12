@@ -6,12 +6,12 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 18:08:58 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/29 18:40:35 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/12 18:03:58 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "WrongCat.hpp"
+#include "../includes/WrongCat.hpp"
 
 WrongCat::WrongCat	( void ) : WrongAnimal()
 {
@@ -37,15 +37,17 @@ WrongCat	&WrongCat::operator= ( const WrongCat &other )
 	if (this != &other)
 	{
 		this->type = other.type;
-		this->_brain = other._brain;
+		if (this->_brain)
+			delete this->_brain;
+		this->_brain = other._brain->clone();
 	}
 	return (*this);
 }
 
-void	WrongCat::makeSound( void )
+void	WrongCat::makeSound( void ) const
 {
 	std::cout << "Wrong miou miou because it's batcat" << std::endl;
 }
 
-std::string	WrongCat::think( void ){ return _brain->getRandomIdea(); }
-void		WrongCat::thinkALot( void ) { _brain->displayIdeas(); }
+std::string	WrongCat::think( void ) const { return _brain->getRandomIdea(); }
+void		WrongCat::thinkALot( void ) const { _brain->displayIdeas(); }

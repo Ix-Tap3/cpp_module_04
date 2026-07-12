@@ -6,12 +6,12 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 09:50:58 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 16:40:24 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/12 18:05:09 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Cat.hpp"
+#include "../includes/Cat.hpp"
 
 Cat::Cat	( void ): Animal()
 {
@@ -38,11 +38,13 @@ Cat	&Cat::operator=	( const Cat &other )
 	if (this != &other)
 	{
 		this->type = other.type;
-		this->_brain = other._brain;
+		if (this->_brain)
+			delete this->_brain;
+		this->_brain = other._brain->clone();
 	}
 	return (*this);
 }
 
-void		Cat::makeSound( void ) { std::cout << "Miou Miou... hum miaou miaou" << std::endl; }
-void		Cat::thinkALot( void ) { _brain->displayIdeas(); }
-std::string	Cat::think( void ) { return (_brain->getRandomIdea()); }
+void		Cat::makeSound( void ) const { std::cout << "Miou Miou... hum miaou miaou" << std::endl; }
+void		Cat::thinkALot( void ) const { _brain->displayIdeas(); }
+std::string	Cat::think( void ) const { return (_brain->getRandomIdea()); }

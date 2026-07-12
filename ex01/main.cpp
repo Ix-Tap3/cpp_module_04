@@ -6,12 +6,12 @@
 /*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 16:42:24 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 16:44:13 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/12 18:06:03 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#include "includes/Dog.hpp"
+#include "includes/Cat.hpp"
 #include <iostream>
 
 int	main( void )
@@ -19,6 +19,7 @@ int	main( void )
 	Animal	*animals[10];
 	Cat		batcat = Cat();
 	Dog		batdog = Dog();
+	Dog		batdog2 = batdog;
 
 	std::cout << std::endl;
 	std::cout << std::endl;

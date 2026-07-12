@@ -19,12 +19,12 @@ protected:
 	std::string	type;
 
 public:
-	WrongAnimal				( void );
-	virtual ~WrongAnimal	( void );
-	WrongAnimal				( const WrongAnimal & );
+	WrongAnimal		( void );
+	~WrongAnimal	( void );
+	WrongAnimal		( const WrongAnimal & );
 
 	WrongAnimal	&operator=	( const WrongAnimal & );
 
-	std::string		getType( void );
-	virtual void	makeSound( void );
+	std::string	getType( void ) const;
+	void		makeSound( void ) const;
 };
