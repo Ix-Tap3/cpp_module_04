@@ -6,7 +6,7 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 09:50:58 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/12 18:05:09 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:10:00 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Cat::Cat	( void ): Animal()
 	_brain = new Brain();
 	_brain->fillIdeas("Cat");
 }
-Cat::Cat	( const Cat &other): Animal( other )
+Cat::Cat	( const Cat &other): Animal( other ), _brain(NULL)
 {
 	std::cout << "Cat copy Constructor Called" << std::endl;
 	if (this != &other)

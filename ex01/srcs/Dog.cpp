@@ -6,7 +6,7 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/25 17:46:41 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/12 18:07:27 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:00:09 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Dog::Dog	( void ): Animal()
 	_brain = new Brain();
 	_brain->fillIdeas("Dog");
 }
-Dog::Dog	( const Dog &other ): Animal( other )
+Dog::Dog	( const Dog &other ): Animal( other ), _brain(NULL)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 	if (this != &other)

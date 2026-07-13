@@ -6,7 +6,7 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 18:08:58 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/12 18:03:58 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:10:54 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ WrongCat::WrongCat	( void ) : WrongAnimal()
 	type = "WrongCat";
 	_brain = new Brain();
 }
-WrongCat::WrongCat	( const WrongCat &other ) : WrongAnimal( other )
+WrongCat::WrongCat	( const WrongCat &other ) : WrongAnimal( other ), _brain(NULL)
 {
 	std::cout << "WrongCat copy constructor called" << std::endl;
 	if (this != &other)
