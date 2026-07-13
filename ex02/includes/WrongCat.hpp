@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/25 17:25:20 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/03 16:06:55 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/06/29 10:30:02 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/07/13 14:24:12 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "AAnimal.hpp"
+#include "AWrongAnimal.hpp"
 #include "Brain.hpp"
 
-class	Dog: public AAnimal
+class	WrongCat: public AWrongAnimal
 {
 private:
 	Brain	*_brain;
 
 public:
-	Dog		( void );
-	Dog		( const Dog & );
-	~Dog	( void );
+	WrongCat	( void );
+	~WrongCat	( void );
+	WrongCat	( const WrongCat & );
 
-	Dog	&operator= ( const Dog & );
+	WrongCat	&operator=	( const WrongCat & );
 
-	void		makeSound( void );
-	void		thinkALot( void );
-	std::string	think( void );
+	void		makeSound( void ) const;
+	void		thinkALot( void ) const;
+	std::string	think( void ) const;
 };

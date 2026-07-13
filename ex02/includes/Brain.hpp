@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AWrongAnimal.hpp                                   :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 10:25:25 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/03 16:12:43 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/06/30 07:48:42 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/07/13 14:31:29 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
 
-class	AWrongAnimal
+class	Brain
 {
+private:
+	static std::string	randomIdeas[12];
+
 protected:
-	std::string	type;
+	std::string	ideas[100];
 
 public:
-	AWrongAnimal			( void );
-	virtual ~AWrongAnimal	( void );
-	AWrongAnimal			( const AWrongAnimal & );
+	Brain	( void );
+	Brain	( const Brain & );
+	~Brain	( void );
 
-	AWrongAnimal	&operator=	( const AWrongAnimal & );
+	Brain	&operator=	( const Brain & );
 
-	std::string		getType( void );
-	virtual void	makeSound( void ) = 0;
+	std::string	getRandomIdea( void ) const;
+
+	void	fillIdeas( const std::string );
+	void	fillRandomIdeas( int );
+	void	displayIdeas( void );
+	Brain	*clone( void ) const;
 };

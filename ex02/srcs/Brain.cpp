@@ -6,14 +6,14 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/30 07:52:15 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/06/30 16:40:35 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:30:55 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-#include "Brain.hpp"
+#include "../includes/Brain.hpp"
 
 // --- Static members initialisation
 std::string	Brain::randomIdeas[12] = {
@@ -96,4 +96,14 @@ void	Brain::displayIdeas( void )
 {
 	for (int i = 0; i < 100; i++)
 	  std::cout << ideas[i] << std::endl;
+}
+
+Brain	*Brain::clone( void ) const
+{
+	Brain	*newBrain = new Brain();
+
+	for (int i = 0; i < 100; i++)
+		newBrain->ideas[i] = this->ideas[i];
+
+	return (newBrain);
 }

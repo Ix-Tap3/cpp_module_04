@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 10:30:02 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/03 16:10:24 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/06/29 09:46:47 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/07/13 14:22:55 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "AWrongAnimal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class	WrongCat: public AWrongAnimal
+class	Cat: public AAnimal
 {
 private:
 	Brain	*_brain;
 
 public:
-	WrongCat	( void );
-	~WrongCat	( void );
-	WrongCat	( const WrongCat & );
+	Cat		( void );
+	Cat		( const Cat & );
+	~Cat	( void );
 
-	WrongCat	&operator=	( const WrongCat & );
+	Cat	&operator=	( const Cat &);
 
-	void		makeSound( void );
-	void		thinkALot( void );
-	std::string	think( void );
+	void		makeSound( void ) const;
+	void		thinkALot( void ) const;
+	std::string	think( void ) const;
 };

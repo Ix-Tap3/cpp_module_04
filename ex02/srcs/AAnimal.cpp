@@ -6,11 +6,11 @@
 /*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 16:27:51 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/03 16:05:45 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:30:35 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
+#include "../includes/AAnimal.hpp"
 #include <iostream>
 
 AAnimal::~AAnimal	(void) {std::cout << "Animal Destructor called" << std::endl;}
@@ -29,4 +29,4 @@ AAnimal	&AAnimal::operator= (const AAnimal &other)
 	return (*this);
 }
 
-std::string	AAnimal::getType(void) {return (type);}
+std::string	AAnimal::getType(void) const {return (type);}

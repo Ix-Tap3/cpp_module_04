@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
+/*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/29 09:46:47 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/03 16:06:15 by pcaplat          ###   ########.fr       */
+/*   Created: 2026/04/24 16:29:56 by pcaplat           #+#    #+#             */
+/*   Updated: 2026/07/13 14:21:00 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "AAnimal.hpp"
-#include "Brain.hpp"
+#include <string>
 
-class	Cat: public AAnimal
+class	AAnimal
 {
-private:
-	Brain	*_brain;
+protected:
+	std::string	type;
 
 public:
-	Cat		( void );
-	Cat		( const Cat & );
-	~Cat	( void );
+	AAnimal				(void);
+	AAnimal				(const AAnimal &);
+	virtual	~AAnimal	(void);
 
-	Cat	&operator=	( const Cat &);
+	AAnimal	&operator= (const AAnimal &);
 
-	void		makeSound( void );
-	void		thinkALot( void );
-	std::string	think( void );
+	std::string		getType(void) const;
+	virtual void	makeSound(void) const = 0;
 };

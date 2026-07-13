@@ -6,12 +6,12 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 17:10:03 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/03 16:11:00 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:30:48 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "AWrongAnimal.hpp"
+#include "../includes/AWrongAnimal.hpp"
 
 AWrongAnimal::~AWrongAnimal	( void ) { std::cout << "WrongAnimal destructor called" << std::endl; }
 AWrongAnimal::AWrongAnimal	( void )
@@ -34,4 +34,4 @@ AWrongAnimal	&AWrongAnimal::operator= ( const AWrongAnimal &other )
 	return (*this);
 }
 
-std::string	AWrongAnimal::getType( void ) { return type; }
+std::string	AWrongAnimal::getType( void ) const { return type; }
