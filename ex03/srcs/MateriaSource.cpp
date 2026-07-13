@@ -6,12 +6,12 @@
 /*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/11 14:32:50 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/11 15:47:40 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:42:50 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "MateriaSource.hpp"
+#include "../includes/MateriaSource.hpp"
 
 // --- Constructors and Destructor
 MateriaSource::MateriaSource	( void )

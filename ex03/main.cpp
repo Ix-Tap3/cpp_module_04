@@ -6,15 +6,15 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 11:10:48 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/11 15:54:20 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:43:30 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Ice.hpp"
-#include "Cure.hpp"
-#include "Character.hpp"
-#include "MateriaSource.hpp"
+#include "includes/Ice.hpp"
+#include "includes/Cure.hpp"
+#include "includes/Character.hpp"
+#include "includes/MateriaSource.hpp"
 
 int	main( void )
 {

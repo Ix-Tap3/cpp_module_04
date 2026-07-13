@@ -6,14 +6,14 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 11:51:25 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/11 15:51:50 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:42:18 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Character.hpp"
-#include "AMateria.hpp"
-#include "FtList.hpp"
+#include "../includes/Character.hpp"
+#include "../includes/AMateria.hpp"
+#include "../includes/FtList.hpp"
 
 // --- Constructors and Destructor
 Character::Character	( void ): _name("Le Pyrobarbare")

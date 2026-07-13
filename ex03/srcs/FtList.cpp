@@ -6,13 +6,13 @@
 /*   By: pcaplat <pcaplat@42angouleme.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 16:41:45 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/06 17:48:12 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:42:36 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "FtList.hpp"
-#include "AMateria.hpp"
+#include "../includes/FtList.hpp"
+#include "../includes/AMateria.hpp"
 
 // --- constructors / Destructor
 FtList::FtList	( void ): _content(NULL), _next(NULL)

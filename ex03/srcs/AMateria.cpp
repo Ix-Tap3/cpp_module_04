@@ -6,11 +6,11 @@
 /*   By: pcaplat </var/spool/mail/pcaplat>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/04 10:40:59 by pcaplat           #+#    #+#             */
-/*   Updated: 2026/07/04 10:52:51 by pcaplat          ###   ########.fr       */
+/*   Updated: 2026/07/13 14:41:42 by pcaplat          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "../includes/AMateria.hpp"
 #include <iostream>
 
 // Constructors and destructor
